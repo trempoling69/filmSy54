@@ -38,29 +38,39 @@ class PlanRepository extends ServiceEntityRepository
             $this->getEntityManager()->flush();
         }
     }
+    public function findAllModifiedPlan(): array
+    {
+        $qb = $this->createQueryBuilder('p');
+        $res = $qb->andWhere('p.dialogues LIKE :dialogues')
+            ->setParameter('dialogues', 'Dialogues_modifiés%')
+            ->orderBy('p.id', 'DESC')
+            ->getQuery()
+            ->getResult();
+        return $res;
+    }
 
-//    /**
-//     * @return Plan[] Returns an array of Plan objects
-//     */
-//    public function findByExampleField($value): array
-//    {
-//        return $this->createQueryBuilder('p')
-//            ->andWhere('p.exampleField = :val')
-//            ->setParameter('val', $value)
-//            ->orderBy('p.id', 'ASC')
-//            ->setMaxResults(10)
-//            ->getQuery()
-//            ->getResult()
-//        ;
-//    }
+    //    /**
+    //     * @return Plan[] Returns an array of Plan objects
+    //     */
+    //    public function findByExampleField($value): array
+    //    {
+    //        return $this->createQueryBuilder('p')
+    //            ->andWhere('p.exampleField = :val')
+    //            ->setParameter('val', $value)
+    //            ->orderBy('p.id', 'ASC')
+    //            ->setMaxResults(10)
+    //            ->getQuery()
+    //            ->getResult()
+    //        ;
+    //    }
 
-//    public function findOneBySomeField($value): ?Plan
-//    {
-//        return $this->createQueryBuilder('p')
-//            ->andWhere('p.exampleField = :val')
-//            ->setParameter('val', $value)
-//            ->getQuery()
-//            ->getOneOrNullResult()
-//        ;
-//    }
+    //    public function findOneBySomeField($value): ?Plan
+    //    {
+    //        return $this->createQueryBuilder('p')
+    //            ->andWhere('p.exampleField = :val')
+    //            ->setParameter('val', $value)
+    //            ->getQuery()
+    //            ->getOneOrNullResult()
+    //        ;
+    //    }
 }

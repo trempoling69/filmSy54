@@ -1,11 +1,11 @@
-commande création de bdd 
-
+## commande création de bdd 
+```
 créer une table bin/console doctrine:database:create
 
 créer une entity php bin/console make:entity
 
 repondre au question pour créer les champs de la table
-
+```
 
 ## Migration
 ```
