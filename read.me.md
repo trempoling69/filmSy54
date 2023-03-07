@@ -31,7 +31,14 @@ Puis make:migration et migrate
 symfony console make:controller nomController
 ```
 
-## Enregistrement d'un nouveau Plan
+## Enregistrement d'une clé étrangère
 ```
-
+php bin/console make:entity nomtableouajouter
+ajouter d'un nouveau field 
+type : relation
+classe avec laquelle faire la relation
+type de lien
+add new property? ajouter la clé aussi à l'autre table
+si oui lui donner un nom 
+puis faire toute la migration
 ```

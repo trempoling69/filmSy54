@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\Effet;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -27,5 +28,20 @@ extends AbstractController
         $number = mt_rand(200, 300);
         $message = 'Je suis un nombre complètement aléatoire';
         return $this->render('first_page/hasard.html.twig', ['number' => $number, 'message' => $message]);
+    }
+
+    #[Route('/firstpage/demoshoweffet/{id}')]
+    public function demoshoweffet(Effet $effet): Response
+    {
+        $plans = $effet->getPlans();
+        $aff = '';
+        foreach ($plans as $plan) {
+            $aff .= $plan->getId() . 'reference :' . $plan->getReference() . 'duree : ' . $plan->getDuree() . 'echelle :' . $plan->getEchelle() . 'dialogue :' . $plan->getDialogues() .
+                'effet :' . $plan->getEffet()?->getEffet() .
+                '<br/>';
+        }
+        return new Response(
+            '<html><body><p>DemoShoweffet():' . $effet->getEffet() . '<br/> plan qui utilise cet effet :' . $aff . '</p></body></html>'
+        );
     }
 }

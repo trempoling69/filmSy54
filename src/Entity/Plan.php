@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\PlanRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: PlanRepository::class)]
@@ -24,6 +26,17 @@ class Plan
 
     #[ORM\Column(length:1000, nullable:true)]
     private ?string $dialogues = null;
+
+    #[ORM\ManyToOne(inversedBy: 'plans')]
+    private ?Effet $effet = null;
+
+    #[ORM\ManyToMany(targetEntity: Artefact::class, inversedBy: 'plans')]
+    private Collection $artefacts;
+
+    public function __construct()
+    {
+        $this->artefacts = new ArrayCollection();
+    }
     public function getId(): ?int
     {
         return $this->id;
@@ -73,6 +86,42 @@ class Plan
     public function setDialogues(?string $dialogues): self
     {
         $this->dialogues = $dialogues;
+
+        return $this;
+    }
+
+    public function getEffet(): ?Effet
+    {
+        return $this->effet;
+    }
+
+    public function setEffet(?Effet $effet): self
+    {
+        $this->effet = $effet;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Artefact>
+     */
+    public function getArtefacts(): Collection
+    {
+        return $this->artefacts;
+    }
+
+    public function addArtefact(Artefact $artefact): self
+    {
+        if (!$this->artefacts->contains($artefact)) {
+            $this->artefacts->add($artefact);
+        }
+
+        return $this;
+    }
+
+    public function removeArtefact(Artefact $artefact): self
+    {
+        $this->artefacts->removeElement($artefact);
 
         return $this;
     }
