@@ -1,0 +1,10 @@
+{% extends 'layout.html.twig' %}
+
+{% block content %}
+    {% for film in films %}
+        <p>
+            {{ film.id }} : {{ film.nom }} : {{ film.pitch }},
+            Nombre de plans : {{ plans[film.id] }}
+        </p>
+    {% endfor %}
+{% endblock %}

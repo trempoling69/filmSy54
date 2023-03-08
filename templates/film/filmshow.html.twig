@@ -1,0 +1,19 @@
+{% extends 'layout.html.twig' %}
+
+{% block content %}
+    id du film :{{id}}
+    nom du film : {{nom}}
+    pitch du film : {{pitch}}
+    <ul>
+    {% if refs is empty %}
+    <li> PAS DE PLANS </li>
+
+    {% else %}
+
+    {% for ref in refs %}
+     <li>{{ref}}</li>
+    {% endfor %}
+
+    {% endif %}
+    </ul>
+{% endblock %}

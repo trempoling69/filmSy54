@@ -37,6 +37,9 @@ class Plan
     #[ORM\ManyToMany(targetEntity: Artefact::class, inversedBy: 'plans')]
     private Collection $artefacts;
 
+    #[ORM\ManyToOne(inversedBy: 'Plans')]
+    private ?Film $film = null;
+
     public function __construct()
     {
         $this->artefacts = new ArrayCollection();
@@ -130,6 +133,18 @@ class Plan
     public function removeArtefact(Artefact $artefact): self
     {
         $this->artefacts->removeElement($artefact);
+
+        return $this;
+    }
+
+    public function getFilm(): ?Film
+    {
+        return $this->film;
+    }
+
+    public function setFilm(?Film $film): self
+    {
+        $this->film = $film;
 
         return $this;
     }
