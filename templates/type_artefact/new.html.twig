@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New TypeArtefact{% endblock %}
+
+{% block body %}
+    <h1>Create new TypeArtefact</h1>
+
+    {{ include('type_artefact/_form.html.twig') }}
+
+    <a href="{{ path('app_type_artefact_index') }}">back to list</a>
+{% endblock %}

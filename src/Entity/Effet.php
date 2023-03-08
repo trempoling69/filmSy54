@@ -42,6 +42,9 @@ class Effet
 
         return $this;
     }
+    public function __toString() {
+        return $this->effet;
+    }
 
     /**
      * @return Collection<int, Plan>

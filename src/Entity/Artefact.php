@@ -66,6 +66,10 @@ class Artefact
         return $this->typeArtefact;
     }
 
+    public function __toString()
+    {
+        return $this->nom;
+    }
     public function setTypeArtefact(?TypeArtefact $typeArtefact): self
     {
         $this->typeArtefact = $typeArtefact;

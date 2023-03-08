@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}TypeArtefact{% endblock %}
+
+{% block body %}
+    <h1>TypeArtefact</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ type_artefact.id }}</td>
+            </tr>
+            <tr>
+                <th>Nom</th>
+                <td>{{ type_artefact.nom }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_type_artefact_index') }}">back to list</a>
+
+    <a href="{{ path('app_type_artefact_edit', {'id': type_artefact.id}) }}">edit</a>
+
+    {{ include('type_artefact/_delete_form.html.twig') }}
+{% endblock %}

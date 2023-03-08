@@ -6,6 +6,7 @@ use App\Repository\PlanRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity(repositoryClass: PlanRepository::class)]
 class Plan
@@ -16,9 +17,11 @@ class Plan
     private ?int $id = null;
 
     #[ORM\Column(length: 20)]
+    #[Assert\Regex(pattern:'/^pl_[0-9]{3}$/', match: true, message:'Une référence de la forme pl_000')]
     private ?string $reference = null;
 
     #[ORM\Column(nullable: true)]
+    #[Assert\Range(min:0, max:100, minMessage:'Durée min {{min}} secondes', maxMessage:'Durée max {{max}} secondes')]
     private ?int $duree = null;
 
     #[ORM\Column(length: 10, nullable: true)]
@@ -28,6 +31,7 @@ class Plan
     private ?string $dialogues = null;
 
     #[ORM\ManyToOne(inversedBy: 'plans')]
+    #[Assert\NotBlank]
     private ?Effet $effet = null;
 
     #[ORM\ManyToMany(targetEntity: Artefact::class, inversedBy: 'plans')]
@@ -100,6 +104,10 @@ class Plan
         $this->effet = $effet;
 
         return $this;
+    }
+    public function __toString()
+    {
+        return $this->reference;
     }
 
     /**

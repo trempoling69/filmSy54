@@ -1,0 +1,11 @@
+{# templates/error.html.twig #}
+
+{% extends 'layout.html.twig' %}
+
+{% block content %}
+    <h2>{{error_message}}:</h2>
+    
+    {% if redir is not empty %}
+	<p><a href="{{ path(redir.route) }}">{{ redir.message }}</a></p>
+    {% endif %}           
+{% endblock %}

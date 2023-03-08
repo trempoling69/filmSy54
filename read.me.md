@@ -42,3 +42,13 @@ add new property? ajouter la clé aussi à l'autre table
 si oui lui donner un nom 
 puis faire toute la migration
 ```
+
+## CRUD
+```
+- Créer une entité
+- faire migration
+- Créer un controller
+- Fonction toString
+- Créer un formulaire
+- Créer un template
+```
