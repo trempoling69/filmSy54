@@ -1,0 +1,25 @@
+{# templates/layout.html.twig #}
+
+{# Héritage de 'base.html.twig' #}
+{% extends 'base.html.twig' %}
+
+{% block title %}Démonstrations{% endblock %}
+{% block stylesheets %} 
+{{parent()}}
+ <link rel="stylesheet" href="{{asset('css/stylesDemos.css')}}" />
+{% endblock %}
+
+{% block body %}
+    <h1>{% block demoTitle %}
+	{{ nomDemo | title }}
+    {% endblock %}</h1>
+    <div id="content">
+	{% block content %}
+	    <p>Le résultat de la démo.</p>
+	    <p>A surcharger par les actions</p>
+	{% endblock %}
+    </div>
+{% endblock %}
+{% block footer %}
+    {% include 'inc/footer.html.twig' %}
+{% endblock %}

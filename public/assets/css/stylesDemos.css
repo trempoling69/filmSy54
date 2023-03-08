@@ -1,0 +1,157 @@
+body{
+	background-color: ghostwhite;
+	max-width: 800px;
+	margin: auto;
+}
+
+h1{
+	background-color:#000000;
+	color: lightgoldenrodyellow;
+	font-family: sans-serif;
+	font-weight: bold;
+	padding: 5px;
+}
+
+label {
+	font-family: "Trebuchet MS", Tahoma, Arial, Helvetica, sans-serif;
+	font-size: 1.0em;
+}
+
+fieldset {
+	font-family: "Trebuchet MS", Tahoma, Arial, Helvetica, sans-serif;
+	font-size: 0.8em;
+	width: 75%;
+}
+
+footer {
+    margin-top: 5px;
+    width: 100%;
+}
+
+table {
+    border: 2px solid darkblue;
+    border-collapse: collapse;
+    border-spacing: 0px;
+    text-align: left;
+}
+
+footer, table {
+    width: 100%;
+}
+
+
+th {
+    border-bottom: 1px solid darkblue;
+    padding: 5px;
+    background-color: blue;
+    color: white;
+}
+
+td {
+	border: 1px solid darkblue;
+	border-bottom: 3px;
+	padding: 5px;
+}
+
+aside {
+	width:250px;
+	padding: 10px;
+	margin: 10px;
+	float: right;
+	text-align: center;	
+	background-color: PaleGoldenrod;
+	border: 1px solid DarkGreen;
+}
+
+.titre {
+	border-bottom: 2px solid RoyalBlue;
+	margin: 10px;
+	padding: 3px;
+	font-family: "Trebuchet MS", Tahoma, Arial, Helvetica, sans-serif;
+	font-size: 1.5em;
+	font-weight:bold;
+	color:aliceblue;
+}
+
+.nb {
+	   text-align: right;
+}
+
+/* Mise en style des tests */
+.bon {
+	background-color: linen;
+	text-align: center;
+	color: black;
+	font-style: italic;
+}
+.bad {
+	background-color: white;
+	text-align: center;
+	color: blue;
+	font-style: italic;
+}
+.question {
+	background-color:#ccccff;
+	font-family:sans-serif;
+	font-size: 0.9em;
+	font-weight: bold;
+}
+
+.validation {
+	background-color:greenyellow;
+	border: #fcc727 5px solid;
+	padding: 5px;
+	font-family:sans-serif;
+	font-size: 1.3em;
+	font-weight: bold;
+	font-style: italic;
+	text-align: center;
+}
+
+.imgAttendu{
+    max-height: 160px;
+    max-width: 45%;
+    height: auto;
+    float: right;
+    border: red solid thin;
+}
+
+.rightText{
+    text-align: right;
+}
+
+.leftText{
+    text-align: left;
+}
+
+.centerText{
+    text-align: center;
+}
+
+#corps p {
+	font-family: "Trebuchet MS", Tahoma, Arial, Helvetica, sans-serif;
+	font-size: 1em;
+	color:aliceblue;
+}
+ 
+#cadre_formulaire {
+	float:left;
+	width: 250px;
+	padding: 5px;
+	margin: 10px;
+	text-align: center;	
+	background-color: aliceblue;
+	border: 2px solid RoyalBlue;
+}
+
+#cadre_formulaire label {
+	font-family: "Trebuchet MS", Tahoma, Arial, Helvetica, sans-serif;
+	font-size: 0.7em;
+	color:navy;
+} 
+
+ #cadre_formulaire  p {
+	font-family: "Trebuchet MS", Tahoma, Arial, Helvetica, sans-serif;
+	font-size: 0.8em;
+	color:navy;
+}

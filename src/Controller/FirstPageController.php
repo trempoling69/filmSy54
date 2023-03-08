@@ -11,23 +11,24 @@ class FirstPageController
 extends AbstractController
 {
     // TODO : add action
-    #[Route('/firstpage/hasardannot')]
-
-    public function hasardAnnot(): Response
+    #[Route('/firstpage/hasardannot/{nb}')]
+    public function hasardAnnot(?int $nb=0): Response
     {
-        $number = random_int(100, 200);
-        return new Response(
-            '<html><body>
-                <p>FirstPage.HasardAnnot():' . $number . '<p>
-                </body></html>'
-        );
+        $numbers = [];
+        for($i=0; $i<$nb; $i++){
+            $numbers[] = random_int(100, 200);
+        }
+        $message = 'Les nombres :';
+        $nomDemo = 'hasardAnnot';
+        return $this->render('first_page/hasard_annot.html.twig', compact('numbers', 'message', 'nomDemo'));
     }
     #[Route('/', name: 'hasard')]
     public function hasard(): Response
     {
         $number = mt_rand(200, 300);
         $message = 'Je suis un nombre complètement aléatoire';
-        return $this->render('first_page/hasard.html.twig', ['number' => $number, 'message' => $message]);
+        $nomDemo = 'hasard.';
+        return $this->render('first_page/hasard.html.twig', compact('number', 'message', 'nomDemo'));
     }
 
     #[Route('/firstpage/demoshoweffet/{id}')]

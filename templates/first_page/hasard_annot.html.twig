@@ -1,0 +1,23 @@
+{% extends 'layout.html.twig' %}
+
+{% block content %}
+    <p>{{message}}</p>
+    {% if numbers is empty %}
+    <p>Pas de nombre</p>
+    {% else %}
+    <table>
+    <tr><th>Nb</th><th>Parité</th></tr>
+    {%  for number in numbers %}
+    <tr class={{cycle(['bon','bad'], loop.index)}}>
+    <td>{{number}}</td>
+    <td>{% if number is even %}
+    PaIr
+    {% else %}
+    iMpAiR
+    {% endif %}
+    </td>
+    </tr>
+    {% endfor %}
+    </table>
+    {% endif %}
+{% endblock %}
